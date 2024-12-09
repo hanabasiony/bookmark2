@@ -209,7 +209,7 @@ function validateSiteName() {
 }
 
 
-var siteURLRegex = /^(https?:\/\/)?([\w.-]+)\.([a-z]{2,})(:[0-9]{1,5})?(\/.*)?$/i
+var siteURLRegex = /^(https?:\/\/)?([\wW.-]+)\.([a-z]{2,})(:[0-9]{1,5})?(\/.*)?$/i
 function validateSiteURL() {
 
   return siteURLRegex.test(siteUrlInput.value)
