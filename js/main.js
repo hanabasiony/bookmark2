@@ -155,13 +155,13 @@ function searchSite(term) {
     if (allSites[i].name.toLowerCase().includes(term)) {
       cartoona = cartoona + `
         <div class="row table-row">
-        <div class="col-3 ">
+        <div class="col-2 ">
             ${i}
         </div>
-        <div class="col-3 ">
+        <div class="col-2 ">
             ${allSites[i].name}
         </div>
-        <div class="col-2 ">
+        <div class="col-3 ">
           <div class="">
             <button class="visit-botn">
               <a href="https://${allSites[i].url}" target="_blank">
@@ -171,7 +171,7 @@ function searchSite(term) {
             </button>
           </div>
         </div>
-        <div class="col-2 ">
+        <div class="col-3 ">
           <div class="">
             <button onclick="updateSite(${i})" class="update-botn">
                 <i class="fa-solid fa-pen"></i>
