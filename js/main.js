@@ -202,7 +202,7 @@ function searchSite(term) {
 displayAllBookmarks()
 
 
-var siteNameRegex = /^[a-z0-9]{3,12}$/
+var siteNameRegex = /^[a-z0-9A-Z]{3,12}$/
 function validateSiteName() {
 
   return siteNameRegex.test(siteNameInput.value);
