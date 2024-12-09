@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bookmark</title>
+  <link rel="icon" href="./img/iconpng.png">
+  <link rel="stylesheet" href="./css/all.min.css">
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Righteous&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <header>
+    <h1 class="mb-5 ">
+      Bookmarker
+    </h1>
+    <div class="input-body ">
+      <div class="heading-container w-100 pt-3">
+        <div class="input-header d-flex justify-content-center">
+          <div class="bookmark-icon-container d-flex justify-content-center align-items-center i-green">
+            <i class="fa-solid fa-bookmark"></i>
+          </div>
+          <h2>
+            Bookmark your favorite sites
+          </h2>
+          <div class="bookmark-icon-container d-flex justify-content-center align-items-center i-yellow">
+            <i class="fa-solid fa-bookmark"></i>
+          </div>
+        </div>
+      </div>
+      <div class="inputs-section pt-5 d-flex flex-column  justify-content-center">
+        <div class="site-name mb-3">
+          <label for="site-name ">
+            <div class="site-name-label mb-1">
+              <i class="fa-solid fa-book-bookmark me-2"></i>
+              <span class="fw-bold">Site Name</span>
+            </div>
+          </label>
+          <input type="text" value="" onkeyup="validateDesignName(this.value)"  class="form-control name-input" id="site-name" placeholder="Bookmark name">
+        </div>
+
+        <div class="site-URL mt-3">
+          <label for="site-URL">
+            <div class="site-URL-label mb-1">
+              <i class="fa-solid fa-link me-2"></i>
+              <span class="fw-bold">Site URL</span>
+            </div>
+          </label>
+          <input type="text" value="" onkeyup="validateDesignUrl(this.value)" class="form-control url-input " id="site-URL" placeholder="Website URL">
+        </div>
+        <div class="search mt-3">
+          <label for="search">
+            <div class="search-label mb-1">
+              <i class="fa-solid fa-magnifying-glass me-2"></i>
+              <span class="fw-bold">Search</span>
+            </div>
+          </label>
+          <input onkeyup="searchSite(this.value)"  type="search" value="" class="form-control " id="search" placeholder="search by site name">
+        </div>
+        <!-- <p class="update-first ">
+          Please update your bookmark first then delete
+        </p> -->
+        <button id="add-botn" onclick="addSite()" class="submit-botn m-auto mt-4">Submit</button>
+      </div>
+    </div>
+    <div class="container bg-white text-center ">
+      <div class="row table-row m-0">
+        <div class="col-2 output-col">
+          <h5>
+            Index
+          </h5>
+        </div>
+        <div class="col-2 output-col">
+          <h5>
+            Website name
+          </h5>
+        </div>
+        <div class="col-3 output-col">
+          <h5>
+            Vist
+          </h5>
+        </div>
+        <div class="col-3 output-col">
+          <h5>
+            Update
+          </h5>
+        </div>
+        <div class="col-2 output-col">
+          <h5>
+            Delete
+          </h5>
+        </div>
+      </div>
+    </div>
+
+    <div class="container bg-white text-center cont-output  " id="adding-bookmarks-html">
+
+
+    </div>
+
+  </header>
+  <section>
+    <!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<!-- <div class="modal fade show" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" style="display: block;" aria-modal="true" role="dialog"> -->
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" style="top: 30%; left: 34%; position: absolute;">
+    <div class="modal-content">
+      <div class="modal-header border-0">
+        <h5 class="modal-title" id="exampleModalLabel">
+          <div class="modal-circles-continer d-flex ">
+            <div class="modal-circle red-cir"></div>
+            <div class="modal-circle yellow-cir"></div>
+            <div class="modal-circle green-cir"></div>
+          </div>
+        </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body ">
+        <p class="fs-5 fw-bold">Site Name or Url is not valid, Please follow the rules below :</p>
+      </div>
+      <div class="modal-footer border-0 justify-content-start">
+        <div class="modal-war-line d-flex">
+          <div class="arrow-icon-cont d-flex justify-content-center align-items-center me-2">
+            <i class="fs-5 text-danger fa-regular fa-circle-right"></i>
+          </div>
+          <p class="m-0 fs-5">Site name must contain at least 3 characters</p>
+        </div>
+        <div class="modal-war-line d-flex">
+          <div class="arrow-icon-cont d-flex justify-content-center align-items-center me-2">
+            <i class="fs-5 text-danger fa-regular fa-circle-right"></i>
+          </div>
+          <p class="m-0 fs-5">Site name must contain at least 3 characters</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  </section>
+
+
+  <script src="./js/bootstrap.bundle.min.js"></script>
+  <script src="./js/main.js"></script>
+</body>
+
+</html>
